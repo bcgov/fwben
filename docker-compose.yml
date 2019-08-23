@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+
+  ####################### Frontend Definition #######################
+  frontend:
+    image: bcros_frontend
+    container_name: bcros_frontend
+    build:
+      context: coops-ui
+    command: ["npm", "run", "serve"]
+    volumes:
+      - ./coops-ui/src:/opt/app/src
+    ports:
+      - 8080:8080
+#    depends_on:
+#      - backend
+    env_file: ./coops-ui/.env
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    networks:
+      - bcros
+####################### Networks Definition #######################
+networks:
+  bcros:
+    driver: "bridge"
+
+####################### Volumes Definition #######################
+volumes:
+  postgres-data:
