@@ -11,6 +11,8 @@ services:
     command: ["npm", "run", "serve"]
     volumes:
       - ./coops-ui/src:/opt/app/src
+      - ./coops-ui/tests:/opt/app/tests
+      - ./coops-ui/public:/opt/app/public
     ports:
       - 8080:8080
 #    depends_on:
