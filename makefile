@@ -6,9 +6,6 @@
 # -----------------------------------------------------------------------------
 # -=- Local Project Tasks
 # -----------------------------------------------------------------------------
-# define deployTag
-# "${PROJECT}-${DEPLOY_DATE}"
-# endef
 
 ## Task Alias: Builds the whole project locally
 local-project: setup-local-env build-local-project run-local-project
