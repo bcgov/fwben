@@ -9,39 +9,20 @@ let authURL: string
 let payAPIURL: string
 let authAPIURL: string
 
-/* load configurations from file */
-const req = new XMLHttpRequest()
-// TODO - change request to async:true once UI is more complete - currently too quick because we jump straight to AR
-req.open('GET', '/config/configuration.json', false)
-req.setRequestHeader('Accept', 'application/json')
-req.setRequestHeader('ResponseType', 'application/json')
-req.setRequestHeader('Cache-Control', 'no-cache')
-req.onreadystatechange = function () {
-  if (req.readyState === XMLHttpRequest.DONE) {
-    if (req.status === 200) {
-      const configuration = JSON.parse(req.responseText)
+axios.defaults.baseURL = process.env.VUE_APP_API_URL
+console.log(`Set axios.defaults.baseURL to: ${axios.defaults.baseURL}`)
 
-      axios.defaults.baseURL = configuration['API_URL']
-      console.log('Set axios.defaults.baseURL to: ' + axios.defaults.baseURL)
+authURL = process.env.VUE_APP_AUTH_URL
+console.log(`Set authURL to: ${authURL}`)
 
-      authURL = configuration['AUTH_URL']
-      console.log('Set authURL to: ' + authURL)
+authAPIURL = process.env.VUE_APP_AUTH_API_URL
+console.log(`Set authAPIURL to: ${authAPIURL}`)
 
-      authAPIURL = configuration['AUTH_API_URL']
-      console.log('Set authAPIURL to: ' + authAPIURL)
+payAPIURL = process.env.VUE_APP_PAY_API_URL
+console.log(`Set payAPIURL to: ${payAPIURL}`)
 
-      payAPIURL = configuration['PAY_API_URL']
-      console.log('Set payAPIURL to: ' + payAPIURL)
-
-      window['addressCompleteKey'] = configuration['ADDRESS_COMPLETE_KEY']
-      console.log('Set addressCompleteKey')
-    } else {
-      // nothing
-      console.log('could not load configurations')
-    }
-  }
-}
-req.send()
+window['addressCompleteKey'] = process.env.VUE_APP_ADDRESS_COMPLETE_KEY
+console.log('Set addressCompleteKey')
 
 // inject properties into global namespace
 Vue.mixin({

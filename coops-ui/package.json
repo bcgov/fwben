@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --port 8080",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "lint:nofix": "vue-cli-service lint --no-fix",
@@ -15,6 +15,7 @@
     "@types/vuelidate": "^0.7.4",
     "axios": "^0.18.0",
     "core-js": "^3.1.4",
+    "dotenv": "^8.1.0",
     "http-status-codes": "^1.3.2",
     "lodash.isempty": "^4.4.0",
     "regenerator-runtime": "^0.13.3",
