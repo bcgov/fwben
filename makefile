@@ -6,6 +6,9 @@
 # -----------------------------------------------------------------------------
 # -=- Local Project Tasks
 # -----------------------------------------------------------------------------
+# define deployTag
+# "${PROJECT}-${DEPLOY_DATE}"
+# endef
 
 ## Task Alias: Builds the whole project locally
 local-project: setup-local-env build-local-project run-local-project
@@ -25,6 +28,16 @@ run-local-project:
 ## Stops the locally running project
 stop-local-project:
 	@docker-compose -f ./docker-compose.yml down
+
+## Shell into local container
+local-workspace:
+	@echo "Shelling into local application..."
+	@docker exec -it bcros_frontend bash
+
+## Shell into local development logs
+logs:
+	@echo "Watching logging output for local development container..."
+	@docker logs -f $(shell docker inspect --format="{{.Id}}" bcros_frontend)
 
 
 #################################################################################
