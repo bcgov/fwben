@@ -22,6 +22,16 @@ services:
       - CHOKIDAR_USEPOLLING=true
     networks:
       - bcros
+  ####################### Caddy Definition #######################
+  caddy_proxy:
+    image: bcros_proxy
+    container_name: bcros_proxy
+    build:
+      context: Caddy
+    ports:
+      - 2015:2015
+    networks:
+      - bcros
 ####################### Networks Definition #######################
 networks:
   bcros:
