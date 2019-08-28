@@ -8,7 +8,7 @@ services:
     container_name: bcros_frontend
     build:
       context: coops-ui
-    command: ["npm", "run", "serve"]
+    command: ["npm", "run", "serve", "--disable-host-check","--host 0.0.0.0", "--disableHostCheck", "true" ]
     volumes:
       - ./coops-ui/src:/opt/app/src
       - ./coops-ui/tests:/opt/app/tests

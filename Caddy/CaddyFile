@@ -1,5 +1,8 @@
 localhost:2015 { 
-proxy /app  frontend:8080
+proxy /app frontend:8080 {
+header_upstream Host "localhost"
+}
+header / Host "localhost"
 proxy /auth localhost:8081
-proxy /api  amazing_bardeen:5000
+proxy /api localhost:5000
 }
