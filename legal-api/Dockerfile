@@ -19,9 +19,7 @@ RUN pip install --no-cache-dir -r repo-libraries.txt
 COPY . .
 RUN pip install .
 
-#RUN export FLASK_ENV=development
 USER 1001
-#RUN export $(grep -v '^#' k8s/legal-api-deploy.dev.param | xargs)
 
 # Run the server
 EXPOSE 5000

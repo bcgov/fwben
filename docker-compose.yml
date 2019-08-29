@@ -8,7 +8,7 @@ services:
     container_name: bcros_frontend
     build:
       context: coops-ui
-    command: ["npm", "run", "serve", "--disable-host-check","--host 0.0.0.0", "--disableHostCheck", "true" ]
+    command: ["npm", "run", "serve"]
     volumes:
       - ./coops-ui/src:/opt/app/src
       - ./coops-ui/tests:/opt/app/tests
@@ -32,6 +32,19 @@ services:
       - 2015:2015
     networks:
       - bcros
+####################### Legal API Definition #######################
+  legal_api:
+    image: legal_api
+    container_name: legal_api
+    build:
+      context: legal-api
+    env_file:
+      - ./legal-api/env-wf
+    ports:
+      - 5000:5000
+    networks:
+      - bcros
+
 ####################### Networks Definition #######################
 networks:
   bcros:
