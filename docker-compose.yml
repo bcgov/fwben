@@ -45,6 +45,19 @@ services:
     networks:
       - bcros
 
+####################### Lear Database Definition #######################
+  legal_db:
+    image: legal_db
+    container_name: legal_db
+    build:
+      context: lear-db
+    env_file:
+      - ./legal-api/env-wf
+    ports:
+      - 5432:5432
+    networks:
+      - bcros
+
 ####################### Networks Definition #######################
 networks:
   bcros:

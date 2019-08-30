@@ -18,6 +18,8 @@ venv/*
 
 # .pyc 
 *.pyc
-
+.eggs/*
+.egg*
+./src/legal_api.egg*
 # .csv
 *.csv
