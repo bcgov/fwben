@@ -24,7 +24,7 @@ pycountry==19.8.18
 pyrsistent==0.15.4
 python-dotenv==0.10.3
 python-jose==3.0.1
-rsa==4.0
+rsa==4.7
 sentry-sdk==0.10.2
 six==1.12.0
 urllib3==1.25.3
