@@ -17,7 +17,7 @@ flask-jwt-oidc==0.1.5
 future==0.17.1
 itsdangerous==1.1.0
 jsonschema==3.0.2
-protobuf==3.9.1
+protobuf==3.18.3
 psycopg2-binary==2.8.3
 pyasn1==0.4.6
 pycountry==19.8.18
